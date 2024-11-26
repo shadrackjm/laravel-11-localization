@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -7,6 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/switch-locale/{locale}',[LanguageController::class,'swichLocale'])->name('switch-language');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
